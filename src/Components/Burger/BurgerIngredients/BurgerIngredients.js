@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classes from  './BurgerIngredients.module.css';
 
-class burgerIngredient extends Component {
+class BurgerIngredient extends Component {
     render () {
     
         let ingredient = null ;
@@ -47,4 +47,4 @@ class burgerIngredient extends Component {
 
 };
 
-export default burgerIngredient;
+export default BurgerIngredient;
