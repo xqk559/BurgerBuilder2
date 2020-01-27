@@ -13,7 +13,7 @@
 }
 
 @media (min-width: 500px) {
-    .SideDraer {
+    .SideDrawer {
         display: none;
     }
 }
@@ -28,4 +28,5 @@
 
 .Logo {
     height: 80%;
+    margin-bottom: -400px;
 }
