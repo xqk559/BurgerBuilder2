@@ -19,9 +19,10 @@ class ContactData extends Component {
     orderHandler = (event) => {
         event.preventDefault();
         this.setState( { loading: true } );
+        console.log(this.props.ingredients)
         const order = {
             ingredients: this.props.ingredients,
-            price: this.state.totalPrice,
+            price: this.props.price,
             customer: {
                 name: 'Max Schwarzmüller',
                 address: {
@@ -33,7 +34,7 @@ class ContactData extends Component {
             },
             deliveryMethod: 'fastest'
         }
-        axios.post( '/orders.json', order )
+        axios.post( 'https://burgerbuilder-cea69.firebaseio.com/orders.json', order )
             .then( response => {
                 this.setState( { loading: false } );
                 this.props.history.push('/home');
