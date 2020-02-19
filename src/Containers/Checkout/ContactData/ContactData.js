@@ -152,7 +152,9 @@ class ContactData extends Component {
                         key={formElement.id}
                         elementType={formElement.config.elementType}
                         elementConfig={formElement.config.elementConfig}
-                        value={formElement.config.value}/>
+                        value={formElement.config.value}
+                        invalid={!formElement.config.valid}
+                        shouldValidate={formElement.config.validation}/>
                 ))}
                 <Input inputtype="input" className={classes.Input} type="text" name="email" placeholder="Your Email Here" />
                 <Input inputtype="input" className={classes.Input} type="text" name="street" placeholder="Your Street Here" />
