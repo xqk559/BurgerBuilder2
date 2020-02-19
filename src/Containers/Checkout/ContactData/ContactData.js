@@ -64,20 +64,14 @@ class ContactData extends Component {
     orderHandler = (event) => {
         event.preventDefault();
         this.setState( { loading: true } );
-        console.log(this.props.ingredients)
+        const formData = {}
+        for (let formElementIdentifier in this.state.orderForm) {
+            formData[formElementIdentifier] = this.state.orderForm[formElementIdentifier].value;
+        }
         const order = {
             ingredients: this.props.ingredients,
             price: this.props.price,
-            customer: {
-                name: 'Max Schwarzmüller',
-                address: {
-                    street: 'Teststreet 1',
-                    zipCode: '41351',
-                    country: 'Germany'
-                },
-                email: 'test@test.com'
-            },
-            deliveryMethod: 'fastest'
+            orderData: formData,
         }
         axios.post( 'https://burgerbuilder-cea69.firebaseio.com/orders.json', order )
             .then( response => {
@@ -112,7 +106,7 @@ class ContactData extends Component {
         }
 
         let form = (
-            <form>
+            <form onSubmit={this.orderHandler}>
                 <Input elementType="..." elementConfig="..." value="..."/>
                 {formElementsArray.map(formElement => (
                     <Input 

@@ -9,6 +9,7 @@ function App() {
   return (
     <div>
      <Layout>
+     <Route path="/" exact component={BurgerBuilder} />
        <Route path="/home" component={BurgerBuilder} />
        <Route path="/checkout" component={Checkout} />
        <Route path="/orders" component={Orders} />
