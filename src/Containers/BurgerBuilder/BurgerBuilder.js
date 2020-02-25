@@ -138,7 +138,6 @@ class BurgerBuilder extends Component {
         if ( this.state.loading ) {
             orderSummary = <Spinner />;
         }
-        // {salad: true, meat: false, ...}
         return (
             <ReactAux>
                 <Modal show={this.state.purchasing} 
