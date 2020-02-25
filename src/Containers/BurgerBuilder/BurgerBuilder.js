@@ -21,7 +21,12 @@ class BurgerBuilder extends Component {
     //     this.state = {...}
     // }
     state = {
-        ingredients: null,
+        ingredients: {
+            salad: 0,
+            bacon: 0,
+            cheese: 0,
+            meat: 0,
+        },
         totalPrice: 4,
         purchasable: true,
         purchasing: false,
@@ -30,15 +35,15 @@ class BurgerBuilder extends Component {
     }
 
     componentDidMount () {
-        axios.get( 'https://burgerbuilder-cea69.firebaseio.com/ingredients.json' )
-            .then( response => {
-                this.setState( { ingredients: response.data } )
-                console.log(this.state.purchasable);
-                this.setState({purchasable: true})
-            })
-            .catch( error => {
-                this.setState( { error: true } );
-            } );
+        // axios.get( 'https://burgerbuilder-cea69.firebaseio.com/ingredients.json' )
+        //     .then( response => {
+        //         this.setState( { ingredients: response.data } )
+        //         console.log(this.state.purchasable);
+        //         this.setState({purchasable: true})
+        //     })
+        //     .catch( error => {
+        //         this.setState( { error: true } );
+        //     } );
     }
 
     updatePurchaseState ( ingredients ) {
