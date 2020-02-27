@@ -28,7 +28,7 @@ export const purchaseBurger = (orderData) => {
         axios.post( 'https://burgerbuilder-cea69.firebaseio.com/orders.json', orderData)
             .then( response => {
                 console.log(response.data);
-                dispatch(purchaseBurgerSuccess(response.data, orderData))
+                dispatch(purchaseBurgerSuccess(response.data.name, orderData))
             } )
             .catch( error => {
                 dispatch(purchaseBurgerFail(error));
