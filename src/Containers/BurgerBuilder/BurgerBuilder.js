@@ -8,7 +8,7 @@ import axios from '../../axios-orders';
 import Spinner from '../../Components/UI/Spinner/Spinner';
 import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
 import { connect } from 'react-redux';
-import * as actionTypes from '../../Store/actions';
+import * as actionTypes from '../../Store/actions/actionTypes';
 
 class BurgerBuilder extends Component {
     // constructor(props) {
