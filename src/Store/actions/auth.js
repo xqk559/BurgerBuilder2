@@ -15,17 +15,21 @@ export const authSuccess = (token, userId) => {
     };
 };
 
-export const authFail = (error) => {
+export const authFail = (error) => 
+{
     return {
         type: actionTypes.AUTH_FAIL,
         error: error,
     };
 };
 
-export const auth = (email, password, signup) => {
-    return dispatch => {
+export const auth = (email, password, signup) => 
+{
+    return dispatch => 
+    {
         dispatch(authStart());
-        const authData = {
+        const authData = 
+        {
             email: email,
             password: password,
             returnSecureToken: true,
@@ -35,9 +39,13 @@ export const auth = (email, password, signup) => {
             url = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCm7x7RCXSdqfA2uXZPad61b3gXeiQYcJA'
         }
         axios.post(url, authData)
-            .then(response => {
+            .then(response => 
+                {
                 console.log(response);
                 dispatch(authSuccess(response.data.idToken, response.data.localId))
-            })
+                })
+            .catch(err => {
+                dispatch(authFail(err.response.data.error))
+                })
     };
 };
