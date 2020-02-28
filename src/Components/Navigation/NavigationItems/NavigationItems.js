@@ -6,7 +6,7 @@ import { checkPropTypes } from 'prop-types';
 const NavigationItems = (props) => (
     <ul className={classes.NavigationItems}>
         <NavigationItem link ="/home">Burger Builder &nbsp;</NavigationItem>
-        <NavigationItem link ="/orders">Orders</NavigationItem>
+        {props.isAuthenticated ? <NavigationItem link ="/orders">Orders</NavigationItem> : null}
         {!props.isAuthenticated ? 
             <NavigationItem link ="/auth">Authenticate</NavigationItem> :
             <NavigationItem link ="/logout">Logout</NavigationItem>
