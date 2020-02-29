@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Layout from './Components/Layouts/Layout' ;
 import BurgerBuilder from './Containers/BurgerBuilder/BurgerBuilder' ;
 import Checkout from './Containers/Checkout/Checkout';
-import {Route} from 'react-router-dom';
+import {Route, withRouter} from 'react-router-dom';
 import Orders from './Containers/Orders/Orders';
 import Auth from './Containers/Auth/auth';
 import Logout from './Containers/Auth/logout/logout';
@@ -31,8 +31,8 @@ class App extends Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onTryAutoSignup: () => dispatch(actions.authCheckState),
+    onTryAutoSignup: () => dispatch(actions.authCheckState()),
   };
 };
 
-export default connect(null, mapDispatchToProps)(App);
+export default withRouter(connect(null, mapDispatchToProps)(App));
