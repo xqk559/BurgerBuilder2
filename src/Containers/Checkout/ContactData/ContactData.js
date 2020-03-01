@@ -6,6 +6,8 @@ import Input from '../../../Components/UI/Input/Input';
 import {connect} from 'react-redux';
 import * as actions from '../../../Store/actions/index';
 import {updateObject} from '../../../Shared/utility';
+import {checkValidity} from '../../../Shared/utility';
+
 
 class ContactData extends Component {
     state = {
@@ -91,20 +93,6 @@ class ContactData extends Component {
         formIsValid: false,
     }
 
-    checkValidity(value, rules) {
-        let isValid = true;
-        if (rules.required) {
-            isValid = value.trim() !== '' && isValid;
-        }
-        if (rules.minLength) {
-            isValid = value.length >= rules.minLength && isValid;
-        }
-        if (rules.maxLength) {
-            isValid = value.length <= rules.maxLength && isValid;
-        }
-        return isValid;
-    }
-
     orderHandler = (event) => {
         event.preventDefault();
         this.setState( { loading: true } );
@@ -125,7 +113,7 @@ class ContactData extends Component {
     inputChangedHandler = (event, inputIdentifier) => {
         const updatedFormElement = updateObject(this.state.orderForm[inputIdentifier], {
             value: event.target.value,
-            valid: this.checkValidity(event.target.value, this.state.orderForm[inputIdentifier].validation),
+            valid: checkValidity(event.target.value, this.state.orderForm[inputIdentifier].validation),
             touched: true
         });
         const updatedOrderForm = updateObject(this.state.orderForm, {
