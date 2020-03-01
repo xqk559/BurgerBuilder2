@@ -1,7 +1,6 @@
 import React from 'react';
 import classes from './NavigationItems.module.css';
 import NavigationItem from '../NavigationItem/NavigationItem';
-import { checkPropTypes } from 'prop-types';
 
 const NavigationItems = (props) => (
     <ul className={classes.NavigationItems}>
