@@ -24,7 +24,6 @@ export const purchaseBurgerStart = () => {
 
 export const purchaseBurger = (orderData, token) => {
     return dispatch => {
-        console.log('TOKEN!!!!!' + token);
         dispatch(purchaseBurgerStart());
         axios.post( 'https://burgerbuilder-cea69.firebaseio.com/orders.json?auth=' + token, orderData)
             .then( response => {

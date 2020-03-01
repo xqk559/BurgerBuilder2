@@ -3,13 +3,6 @@ import ReactAux from '../../../hoc/ReactAux';
 import Button from '../../UI/Button/Button';
 
 class OrderSummary extends Component {
-
-    //could be functional component instead of class
-    
-    componentDidUpdate() {
-        console.log('[OrderSummary] WillUpdate');
-    }
-
     render () {
         const ingredientSummary = Object.keys(this.props.ingredients)
         .map(igKey => {
@@ -17,7 +10,6 @@ class OrderSummary extends Component {
                         <span style={{textTransform: 'capitalize'}}>{igKey}</span>: {this.props.ingredients[igKey]}
                     </li>
         });
-    
         return (
             <ReactAux>
                 <h3>Your Order</h3>
