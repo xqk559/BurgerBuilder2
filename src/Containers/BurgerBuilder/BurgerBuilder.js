@@ -111,26 +111,4 @@ export const BurgerBuilder = props => {
         );
     }
 
-
-const mapStateToProps = state => {
-    return {
-        ings: state.burgerBuilder.ingredients,
-        price: state.burgerBuilder.totalPrice,
-        error: state.burgerBuilder.error,
-        isAuthenticated: state.auth.token !== null,
-    };
-}
-
-const mapDispatchtoProps = dispatch => {
-    return {
-        onIngredientAdded: (ingName)=> dispatch(burgerBuilderActions.addIngredient(ingName)),
-        onIngredientRemoved: (ingName)=> dispatch(burgerBuilderActions.removeIngredient(ingName)),
-        onInitIngredients: () => dispatch(burgerBuilderActions.initIngredients()),
-        onInitPurchase: () => dispatch(burgerBuilderActions.purchaseInit()),
-        onSetAuthRedirectPath: (path) => dispatch(burgerBuilderActions.setAuthRedirectPath(path)),
-    }
-}
-
-export default connect(
-                mapStateToProps, 
-                mapDispatchtoProps)(BurgerBuilder, axios);
+export default BurgerBuilder;
