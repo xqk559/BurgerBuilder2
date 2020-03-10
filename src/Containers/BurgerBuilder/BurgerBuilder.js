@@ -6,7 +6,6 @@ import Modal from '../../Components/UI/Modal/Modal';
 import OrderSummary from '../../Components/Burger/OrderSummary/OrderSummary';
 import axios from '../../axios-orders';
 import Spinner from '../../Components/UI/Spinner/Spinner';
-import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
 import { connect } from 'react-redux';
 import * as burgerBuilderActions from '../../Store/actions/index';
 
@@ -108,4 +107,4 @@ const mapDispatchtoProps = dispatch => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchtoProps)(withErrorHandler( BurgerBuilder, axios ));
+export default connect(mapStateToProps, mapDispatchtoProps)(BurgerBuilder, axios);

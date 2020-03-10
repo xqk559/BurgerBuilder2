@@ -10,9 +10,11 @@ import {connect} from 'react-redux';
 import * as actions from './Store/actions/index';
 
 const App = props => {
+  const {onTryAutoSignup} = props;
+
   useEffect(()=> {
-    props.onTryAutoSignup();
-  }, []);
+    onTryAutoSignup();
+  }, [onTryAutoSignup]);
   
   let routes = (
       <Switch>
