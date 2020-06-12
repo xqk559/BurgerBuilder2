@@ -90,7 +90,7 @@ const ContactData = props => {
                 },
             });
         const [formIsValid, setFormIsValid] = useState(false)
-        
+
 
     const orderHandler = (event) => {
         event.preventDefault();
@@ -118,7 +118,7 @@ const ContactData = props => {
         const updatedOrderForm = updateObject(orderForm, {
             [inputIdentifier]: updatedFormElement
         });
-        
+
         let formIsValid = true;
         for (let inputIdentifier in updatedOrderForm) {
             formIsValid = updatedOrderForm[inputIdentifier].valid && formIsValid;
@@ -136,9 +136,8 @@ const ContactData = props => {
         }
         let form = (
             <form onSubmit={orderHandler}>
-                <Input elementType="..." elementConfig="..." value="..."/>
                 {formElementsArray.map(formElement => (
-                    <Input 
+                    <Input
                         changed={(event) => inputChangedHandler(event, formElement.id)}
                         key={formElement.id}
                         elementType={formElement.config.elementType}
@@ -148,10 +147,8 @@ const ContactData = props => {
                         shouldValidate={formElement.config.validation}
                         touched={formElement.config.touched}/>
                 ))}
-                <Input inputtype="input" className={classes.Input} type="text" name="email" placeholder="Your Email Here" />
-                <Input inputtype="input" className={classes.Input} type="text" name="street" placeholder="Your Street Here" />
-                <Input inputtype="input" className={classes.Input} type="text" name="postalCode" placeholder="Your Zip Code Here" />
-                <Button clicked={orderHandler} 
+
+                <Button clicked={orderHandler}
                         btnType="Success"
                         disabled = {!formIsValid}>
                             Order
