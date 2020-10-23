@@ -41,14 +41,14 @@ const Auth = props => {
             },
         });
         const [isSignup, setIsSignUp] = useState(true);
-    
+
 
     const {building, authRedirectPath, onSetAuthRedirectPath} = props;
 
     useEffect(()=>{
         if (!building && authRedirectPath !== '/') {
             onSetAuthRedirectPath();
-    }}, [building, authRedirectPath, onSetAuthRedirectPath]); 
+    }}, [building, authRedirectPath, onSetAuthRedirectPath]);
 
     const inputChangedHandler = (event, controlName) => {
         const updatedControls = updateObject(controls, {
@@ -79,7 +79,7 @@ const Auth = props => {
         }
 
         let form = formElementsArray.map(formElement => (
-            <Input 
+            <Input
                 key={formElement.id}
                 elementType={formElement.config.elementType}
                 elementConfig={formElement.config.elementConfig}
@@ -94,6 +94,7 @@ const Auth = props => {
             form = <Spinner />
         }
 
+        // eslint-disable-next-line no-unused-vars
         let errorMessage = null;
 
         if (props.error) {

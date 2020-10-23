@@ -4,14 +4,13 @@ import Burger from '../../Components/Burger/Burger';
 import BuildControls from '../../Components/Burger/BuildControls/BuildControls';
 import Modal from '../../Components/UI/Modal/Modal';
 import OrderSummary from '../../Components/Burger/OrderSummary/OrderSummary';
-import axios from '../../axios-orders';
 import Spinner from '../../Components/UI/Spinner/Spinner';
-import { connect, useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import * as burgerBuilderActions from '../../Store/actions/index';
 
 export const BurgerBuilder = props => {
     const [purchasing, setPurchasing] = useState(false);
-    
+
     const dispatch = useDispatch();
 
     const ings = useSelector(state=>{
@@ -32,13 +31,14 @@ export const BurgerBuilder = props => {
 
     const onIngredientAdded = ingName => dispatch(burgerBuilderActions.addIngredient(ingName));
     const onIngredientRemoved = (ingName)=> dispatch(burgerBuilderActions.removeIngredient(ingName));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     const onInitIngredients = useCallback(() => dispatch(burgerBuilderActions.initIngredients()), []);
     const onInitPurchase = () => dispatch(burgerBuilderActions.purchaseInit());
     const onSetAuthRedirectPath = (path) => dispatch(burgerBuilderActions.setAuthRedirectPath(path));
 
     useEffect(()=>{
         onInitIngredients()
-    }, [onInitIngredients]) 
+    }, [onInitIngredients])
 
     const updatePurchaseState = ( ingredients ) => {
         const sum = Object.keys( ingredients )
@@ -72,11 +72,11 @@ export const BurgerBuilder = props => {
         const disabledInfo = {
             ...ings
         };
-        
+
         for ( let key in disabledInfo ) {
             disabledInfo[key] = disabledInfo[key] <= 0
         }
-        
+
         let orderSummary = null;
         let burger = error ? <p>Ingredients can't be loaded!</p> : <Spinner />;
 
@@ -102,7 +102,7 @@ export const BurgerBuilder = props => {
         }
         return (
             <ReactAux>
-                <Modal show={purchasing} 
+                <Modal show={purchasing}
                        modalClosed={purchaseCancelHandler}>
                     {orderSummary}
                 </Modal>

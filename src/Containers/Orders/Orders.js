@@ -1,4 +1,4 @@
-import React, {Component, useEffect} from 'react';
+import React, {useEffect} from 'react';
 import Order from '../../Components/Order/Order';
 import * as actions from '../../Store/actions/index';
 import {connect} from 'react-redux';
@@ -7,8 +7,9 @@ import Spinner from '../../Components/UI/Spinner/Spinner';
 const Orders = props => {
     const {onFetchOrders} = props;
     useEffect(()=>{
-        onFetchOrders(props.token, props.userId);    
-    }, [onFetchOrders]) 
+        onFetchOrders(props.token, props.userId);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [onFetchOrders])
         let orders = <Spinner />
         if (!props.loading) {
             orders = props.orders.map(order => (

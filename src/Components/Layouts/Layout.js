@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react' ;
+import React, { useState } from 'react' ;
 import ReactAux from '../../hoc/ReactAux' ;
 import classes from './Layout.module.css' ;
 import Toolbar from '../Navigation/Toolbar/Toolbar';
@@ -21,7 +21,7 @@ const Layout = props => {
             <ReactAux>
                 <Toolbar drawerToggleClicked={sideDrawerToggleHandler}
                          isAuth={props.isAuthenticated}/>
-                <SideDrawer 
+                <SideDrawer
                     closed={sideDrawerClosedHandler}
                     open={sideDrawerisVisible}
                     isAuth={props.isAuthenticated}/>

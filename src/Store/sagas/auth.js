@@ -1,5 +1,4 @@
 import {put, call} from 'redux-saga/effects';
-import * as actionTypes from '../actions/actionTypes';
 import * as actions from '../actions/index';
 import {delay} from 'redux-saga/effects';
 import axios from 'axios';
@@ -18,7 +17,7 @@ export function* logoutSaga(action) {
 export function* checkAuthTimeoutSaga(action) {
     yield delay(action.expirationDate*1000);
     yield put(actions.logout());
-} 
+}
 
 export function* authUserSaga(action) {
     yield put(actions.authStart());
@@ -59,6 +58,6 @@ export function* authCheckStateSaga(action) {
                 yield put(
                     actions.checkAuthTimeout(
                         (expirationDate.getTime() - new Date().getTime()) / 1000 ));
-            }   
+            }
         }
 }

@@ -15,8 +15,8 @@ export default HttpClient => {
             return () => {
                 HttpClient.interceptors.request.eject(reqInterceptor);
                 HttpClient.interceptors.response.eject(resInterceptor);
-            }
-        }, [reqInterceptor, resInterceptor]); 
+            } // eslint-disable-next-line react-hooks/exhaustive-deps
+        }, [reqInterceptor, resInterceptor]);
 
         const errorConfirmedHandler = () => {
             setError(null);

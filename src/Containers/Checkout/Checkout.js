@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import CheckoutSummary from '../../Components/CheckoutSummary/CheckoutSummary';
 import {Route, Redirect} from 'react-router-dom';
 import ContactData from './ContactData/ContactData';
@@ -20,11 +20,11 @@ const Checkout = props => {
             summary = (
                 <div>
                     {purchasedRedirect}
-                    <CheckoutSummary 
+                    <CheckoutSummary
                         ingredients={props.ings}
                         checkoutCancelled={checkoutCancelHandler}
                         checkoutContinued={checkoutContinuedHandler}/>
-                    <Route 
+                    <Route
                         path={props.match.path + '/contact-data'}
                         component={ContactData} />
                 </div>

@@ -1,4 +1,4 @@
-import React, {Component, useEffect} from 'react';
+import React, {useEffect} from 'react';
 import Layout from './Components/Layouts/Layout' ;
 import BurgerBuilder from './Containers/BurgerBuilder/BurgerBuilder' ;
 import Checkout from './Containers/Checkout/Checkout';
@@ -6,7 +6,7 @@ import {Route, withRouter, Switch, Redirect} from 'react-router-dom';
 import Orders from './Containers/Orders/Orders';
 import Auth from './Containers/Auth/auth';
 import Logout from './Containers/Auth/logout/logout';
-import {connect} from 'react-redux'; 
+import {connect} from 'react-redux';
 import * as actions from './Store/actions/index';
 
 const App = props => {
@@ -15,7 +15,7 @@ const App = props => {
   useEffect(()=> {
     onTryAutoSignup();
   }, [onTryAutoSignup]);
-  
+
   let routes = (
       <Switch>
         <Route path="/auth" component={Auth} />
